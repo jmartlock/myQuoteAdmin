@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+  <h1>All Quotes</h1>
+
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Quote</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Likes</th>
+      <th>Actions</th>
+    </tr>
+
+    <% quotes.forEach(function(quote){ %>
+    <tr>
+      <td><%=quote.quote%></td>
+      <td><%=quote.authorName%></td>
+      <td><%=quote.category%></td>
+      <td><%=quote.likes%></td>
+      <td>
+        <a href="/quote/edit?quoteId=<%=quote.quoteId%>">Edit</a>
+        <a href="/quote/delete?quoteId=<%=quote.quoteId%>" 
+           onclick="return confirm('Are you sure you want to delete this quote?')">Delete</a>
+      </td>
+    </tr>
+    <% }); %>
+  </table>
+
+  <br>
+  <a href="/">Back to Home</a>
+<%- include('partials/footer') %>
